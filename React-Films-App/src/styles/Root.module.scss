@@ -1,0 +1,62 @@
+@import "./Variables.scss";
+
+.header {
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100vw;
+    align-items: center;
+    color: $primary;
+    background-color: $background;
+    caret-color: transparent;
+
+    @include breakpoint(md) {
+        padding: 1rem 3rem;
+    }
+
+    &__logo {
+        margin-right: 2rem;
+
+    }
+
+    &__search {
+        font-size: 1.2rem;
+        border: 0.3rem solid $primary;
+        border-radius: 50px;
+        background-color: transparent;
+        padding: 0.5rem 1rem;
+        width: 175px;
+        margin-right: 1rem;
+        caret-color: $primary;
+
+        &::placeholder {
+            color: $primary;
+        }
+    }
+}
+
+.container {
+    transition: 0.3s ease all;
+    padding: 1.5rem;
+    caret-color: transparent;
+    // lock to a max of 5 columns
+    max-width: 1900px;
+    margin: 0 auto;
+
+    @include breakpoint(md) {
+        padding: 3rem;
+    }
+
+    &__request {
+        text-align: center;
+    }
+
+    &__filmsWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

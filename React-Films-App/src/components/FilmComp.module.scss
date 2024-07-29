@@ -1,0 +1,92 @@
+@import "../styles/Variables.scss";
+
+.film {
+    background-color: $white;
+    width: 300px;
+    margin: 1rem;
+    border-radius: $borderRadius;
+    /* to make apply border radius to image top aswell as description bottom */
+    /* also prevent text box from appearing below the image before hover */
+    overflow: hidden;
+    /* make the info boxes relatively positioned onto the movie */
+    position: relative;
+    box-shadow: $boxShadow;
+
+    & img {
+        object-fit: cover;
+        height: 450px;
+        width: 100%;
+    }
+
+    &__movieInfo {
+        color: $primary;
+        background-color: $white;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1rem;
+
+        & h3 {
+            margin: 0;
+        }
+
+        &__tag {
+            // color: $primary;
+            background-color: $white;
+            padding: 0.5rem;
+            border-radius: $borderRadius;
+            box-shadow: $boxShadow;
+            font-weight: bold;
+
+            &.excellent {
+                color: darkgreen
+            }
+
+            &.great {
+                color: olivedrab
+            }
+
+            &.good {
+                color: yellowgreen;
+            }
+
+            &.ok {
+                color: orange;
+            }
+
+            &.bad {
+                color: red;
+            }
+        }
+    }
+
+    &__slideDetails {
+        color: $primary;
+        background-color: $white;
+        padding: 1rem;
+        border-top-left-radius: $borderRadius;
+        border-top-right-radius: $borderRadius;
+        box-shadow: $boxShadow;
+        /* place box ontop of movie */
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* make sure info only covers height of image, with scroll if too much text */
+        overflow: auto;
+        max-height: 75%;
+        min-height: 23%;
+        /* push box down initially and further so the box shadow is hidden before hover*/
+        transform: translateY(102%);
+        transition: 0.3s ease-in-out;
+
+    }
+
+    &:hover &__slideDetails {
+        transform: translateY(0%);
+    }
+
+    &:active &__slideDetails {
+        transform: translateY(0%);
+    }
+}
